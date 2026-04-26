@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed  Abu AL-Failat - Digital Business Card</title>
+    
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap)" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #2a2a2a;
+            --bg-card: #333333;
+            --gold-primary: #C8A97E;
+            --gold-light: #E0C89E;
+            --burgundy: #7A203F;
+            --text-light: #F0F0F0;
+            --text-muted: #A0A0A0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            padding-bottom: 100px; /* Space for the fixed footer */
+            color: var(--text-light);
+        }
+
+        /* Main Card Container */
+        .card-container {
+            background-color: var(--bg-card);
+            width: 100%;
+            max-width: 420px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(200, 169, 126, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Brand Section */
+        .brand-header {
+            text-align: center;
+            padding: 1px 20px 1px;
+            position: relative;
+            border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+        }
+
+        .brand-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top, rgba(200, 169, 126, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Brand Logo */
+        .logo-b {
+            width: 180px;
+            height: 180px;
+            background-color: transparent;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-b img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Circular Photo Container */
+        .photo-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 20px auto 30px auto;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Profile Details Section */
+        .profile-section {
+            padding: 1px 30px;
+            text-align: center;
+        }
+
+        .profile-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: capitalize;
+        }
+
+        .profile-title {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        /* Contact Links */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-bottom: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .contact-item:hover {
+            background: rgba(200, 169, 126, 0.1);
+            border-color: rgba(200, 169, 126, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(200, 169, 126, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            color: var(--gold-primary);
+        }
+
+        .contact-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .contact-text-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .contact-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+        }
+
+        .contact-value {
+            font-size: 12px;
+            font-weight: 500;
+text-transform: lowercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Floating Action Button Container */
+        .fixed-action-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 420px;
+            padding: 0 30px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .fixed-action-container button {
+            pointer-events: auto;
+        }
+
+        .btn-save {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #D4AF37 0%, #AA771C 100%);
+            color: #111;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        
+        <header class="brand-header">
+           <div class="logo-b">
+          <a href="https://bristolamman.com">
+        <img src="BHlogo.svg" alt="Logo">
+    </a>
+           </div>
+        </header>
+
+        <main class="profile-section">
+            <div class="photo-container">
+                <img src="mfailat.jpg" alt="Mohammed  Abu AL-Failat">
+            </div>
+            
+            <h1 class="profile-name">Mohammed  Abu AL-Failat</h1>
+            <h2 class="profile-title">HR Supervisor</h2>
+
+            <ul class="contact-list">
+                <li>
+                    <a href="tel:+962799027449" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                        </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Mobile</span>
+                            <span class="contact-value">+962 79 9027449</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:hrd@bristolamman.com" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">E-mail</span>
+                            <span class="contact-value">hrd@bristolamman.com</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="tel:+96265923400" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Hotel Phone</span>
+                            <span class="contact-value">+962 6 5923400</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="mailto:bristol@bristolamman.com" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                        </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Hotel Email</span>
+                            <span class="contact-value">bristol@bristolamman.com</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.bristolamman.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c-.96 1.66-2.49 2.93-4.33 3.56C1.36 10.45 1.82 9.25 2.14 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                        </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Website</span>
+                            <span class="contact-value">bristolamman.com</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </main>
+    </div> 
+    
+  
+    </div>
+	 <div class="fixed-action-container">
+            <button class="btn-save" onclick="downloadVCard()">Save Contact</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to dynamically generate and download a standard .vcf file
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:Mohammed  Abu AL-Failat;
+FN:Mohammed  Abu AL-Failat
+ORG:Bristol Hotel
+TITLE:HR Supervisor
+TEL;TYPE=WORK,VOICE:+962 6 5923400
+TEL;TYPE=CELL,VOICE:+962799027449
+EMAIL;TYPE=PREF,INTERNET:hrd@bristolamman.com
+EMAIL;TYPE=INTERNET:bristol@bristolamman.com
+URL:https://www.bristolamman.com
+END:VCARD`;
+
+            // Create a Blob containing the vCard data
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            
+            // Create a temporary link element to trigger the download
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'mfailat.vcf');
+            
+            // Append to body, click, and clean up
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
