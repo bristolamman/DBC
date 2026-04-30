@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naser Dohal - Digital Business Card</title>
     
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -35,11 +35,10 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            padding-bottom: 100px; /* Space for the fixed footer */
+            padding-bottom: 100px; 
             color: var(--text-light);
         }
 
-        /* Main Card Container */
         .card-container {
             background-color: var(--bg-card);
             width: 100%;
@@ -52,7 +51,6 @@
             flex-direction: column;
         }
 
-        /* Top Brand Section */
         .brand-header {
             text-align: center;
             padding: 1px 20px 1px;
@@ -68,7 +66,6 @@
             pointer-events: none;
         }
 
-        /* Brand Logo */
         .logo-b {
             width: 180px;
             height: 180px;
@@ -84,10 +81,8 @@
             height: 100%;
             object-fit: contain;
             padding: 10px;
-            box-sizing: border-box;
         }
 
-        /* Circular Photo Container */
         .photo-container {
             width: 200px;
             height: 200px;
@@ -107,7 +102,6 @@
             object-fit: cover;
         }
 
-        /* Profile Details Section */
         .profile-section {
             padding: 1px 30px;
             text-align: center;
@@ -132,7 +126,6 @@
             margin-bottom: 30px;
         }
 
-        /* Contact Links */
         .contact-list {
             list-style: none;
             display: flex;
@@ -195,11 +188,10 @@
         .contact-value {
             font-size: 12px;
             font-weight: 500;
-text-transform: lowercase;
+            text-transform: lowercase;
             letter-spacing: 0.5px;
         }
 
-        /* Floating Action Button Container */
         .fixed-action-container {
             position: fixed;
             bottom: 20px;
@@ -209,11 +201,6 @@ text-transform: lowercase;
             max-width: 420px;
             padding: 0 30px;
             z-index: 1000;
-            pointer-events: none;
-        }
-
-        .fixed-action-container button {
-            pointer-events: auto;
         }
 
         .btn-save {
@@ -238,7 +225,6 @@ text-transform: lowercase;
 
         .btn-save:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
             filter: brightness(1.1);
         }
     </style>
@@ -246,12 +232,11 @@ text-transform: lowercase;
 <body>
 
     <div class="card-container">
-        
         <header class="brand-header">
            <div class="logo-b">
-          <a href="https://bristolamman.com">
-        <img src="BHlogo.svg" alt="Logo">
-    </a>
+              <a href="https://bristolamman.com">
+                <img src="BHlogo.svg" alt="Logo">
+              </a>
            </div>
         </header>
 
@@ -275,7 +260,6 @@ text-transform: lowercase;
                         </div>
                     </a>
                 </li>
-
                 <li>
                     <a href="mailto:naser@bristolamman.com" class="contact-item">
                         <div class="contact-icon">
@@ -287,7 +271,6 @@ text-transform: lowercase;
                         </div>
                     </a>
                 </li>
-                
                 <li>
                     <a href="tel:+96265923400" class="contact-item">
                         <div class="contact-icon">
@@ -299,19 +282,6 @@ text-transform: lowercase;
                         </div>
                     </a>
                 </li>
-                
-                <li>
-                    <a href="mailto:bristol@bristolamman.com" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
-                        </div>
-                        <div class="contact-text-wrap">
-                            <span class="contact-label">Hotel Email</span>
-                            <span class="contact-value">bristol@bristolamman.com</span>
-                        </div>
-                    </a>
-                </li>
-
                 <li>
                     <a href="https://www.bristolamman.com" target="_blank" rel="noopener noreferrer" class="contact-item">
                         <div class="contact-icon">
@@ -326,35 +296,49 @@ text-transform: lowercase;
             </ul>
         </main>
     </div> 
-    
-  
-    </div>
-	 <div class="fixed-action-container">
-            <button class="btn-save" onclick="downloadVCard()">Save Contact</button>
-        </div>
 
+    <div class="fixed-action-container">
+        <button class="btn-save" onclick="downloadVCard()">Save Contact</button>
     </div>
 
     <script>
-        // Function to dynamically generate and download a standard .vcf file
-        function downloadVCard() {
+        async function downloadVCard() {
+            const name = "Naser Dohal";
+            const imageUrl = "naser.jpg"; 
+            let base64Image = "";
+            
+            // Try to fetch the image and convert it to Base64 for the vCard
+            try {
+                const response = await fetch(imageUrl);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    base64Image = await new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onloadend = () => resolve(reader.result.split(',')[1]);
+                        reader.readAsDataURL(blob);
+                    });
+                }
+            } catch (e) {
+                console.warn("Profile image could not be loaded into vCard. Downloading without photo.");
+            }
+
             const vCardData = `BEGIN:VCARD
 VERSION:3.0
-N:Naser Dohal;
-FN:Naser Dohal
+N:;${name};;;
+FN:${name}
 ORG:Bristol Hotel
 TITLE:Financial Manager Owning Co.
 TEL;TYPE=CELL,VOICE:+962799060808
 EMAIL;TYPE=PREF,INTERNET:naser@bristolamman.com
 URL:https://bristolamman.github.io/DBC/naser.html
+${base64Image ? `PHOTO;TYPE=JPEG;ENCODING=b:${base64Image}` : ""}
 END:VCARD`;
 
-            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-            
-            const url = window.URL.createObjectURL(blob);
+            const vcfBlob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(vcfBlob);
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'naser.vcf');
+            link.setAttribute('download', `${name}.vcf`);
             
             document.body.appendChild(link);
             link.click();
