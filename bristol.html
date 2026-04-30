@@ -18,6 +18,8 @@
             --burgundy: #7A203F;
             --text-light: #F0F0F0;
             --text-muted: #A0A0A0;
+            --tripadvisor-green: #00AF87;
+            --google-blue: #4285F4; /* Official Google Blue */
         }
 
         * {
@@ -35,11 +37,10 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            padding-bottom: 100px; /* Space for the fixed footer */
+            padding-bottom: 100px; 
             color: var(--text-light);
         }
 
-        /* Main Card Container */
         .card-container {
             background-color: var(--bg-card);
             width: 100%;
@@ -52,7 +53,6 @@
             flex-direction: column;
         }
 
-        /* Top Brand Section */
         .brand-header {
             text-align: center;
             padding: 1px 20px 1px;
@@ -60,19 +60,9 @@
             border-bottom: 1px solid rgba(200, 169, 126, 0.2);
         }
 
-        .brand-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at top, rgba(200, 169, 126, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* Brand Logo */
         .logo-b {
             width: 180px;
             height: 180px;
-            background-color: transparent;
             margin: 20px auto;
             display: flex;
             justify-content: center;
@@ -84,16 +74,13 @@
             height: 100%;
             object-fit: contain;
             padding: 10px;
-            box-sizing: border-box;
         }
 
-        /* Profile Details Section */
         .profile-section {
             padding: 1px 30px;
             text-align: center;
         }
 
-        /* Contact Links */
         .contact-list {
             list-style: none;
             display: flex;
@@ -105,7 +92,7 @@
 
         .contact-item {
             display: flex;
-            flex-direction: column; /* Changed to accommodate the map */
+            flex-direction: column;
             background: rgba(0, 0, 0, 0.2);
             padding: 16px 20px;
             border-radius: 12px;
@@ -113,14 +100,7 @@
             color: var(--text-light);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        /* Regular items remain flex-row for layout */
-        .contact-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: inherit;
+            overflow: hidden;
         }
 
         .contact-item:hover {
@@ -128,6 +108,29 @@
             border-color: rgba(200, 169, 126, 0.3);
             transform: translateY(-2px);
         }
+
+        /* Branded Buttons Base Styles */
+        .tripadvisor-item, .google-maps-item {
+            border: none !important;
+        }
+
+        .tripadvisor-item .contact-icon, .google-maps-item .contact-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .tripadvisor-item .contact-label, .tripadvisor-item .contact-value-c,
+        .google-maps-item .contact-label, .google-maps-item .contact-value {
+            color: white !important;
+        }
+
+        /* TripAdvisor Branding */
+        .tripadvisor-item { background: var(--tripadvisor-green) !important; }
+        .tripadvisor-item:hover { background: #008f6e !important; }
+
+        /* Google Maps Branding */
+        .google-maps-item { background: var(--google-blue) !important; }
+        .google-maps-item:hover { background: #3367d6 !important; }
 
         .contact-icon {
             width: 40px;
@@ -143,8 +146,8 @@
         }
 
         .contact-icon svg {
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             fill: currentColor;
         }
 
@@ -162,30 +165,27 @@
             margin-bottom: 3px;
         }
 
-        .contact-value {
+        .contact-value, .contact-value-c {
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.5px;
             text-align: left;
         }
 
-        /* MAP SPECIFIC STYLES */
+        .contact-value-c { text-transform: capitalize; }
+        .contact-value { text-transform: lowercase; }
+
         .map-wrapper {
             width: 100%;
             height: 180px;
             border-radius: 8px;
             overflow: hidden;
             margin-top: 12px;
-            border: 1px solid rgba(200, 169, 126, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
-        .map-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
 
-        /* Floating Action Button Container */
         .fixed-action-container {
             position: fixed;
             bottom: 20px;
@@ -198,9 +198,7 @@
             pointer-events: none;
         }
 
-        .fixed-action-container a, .fixed-action-container button {
-            pointer-events: auto;
-        }
+        .fixed-action-container a, .fixed-action-container button { pointer-events: auto; }
 
         .btn-save {
             display: block;
@@ -210,7 +208,6 @@
             color: #111;
             text-align: center;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 14px;
             letter-spacing: 1px;
@@ -224,7 +221,6 @@
 
         .btn-save:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
             filter: brightness(1.1);
         }
     </style>
@@ -232,7 +228,6 @@
 <body>
 
     <div class="card-container">
-        
         <header class="brand-header">
             <div class="logo-b">
                 <a href="https://bristolamman.com">
@@ -242,7 +237,6 @@
         </header>
 
         <main class="profile-section">
-
             <ul class="contact-list">
                 
                 <li>
@@ -258,7 +252,9 @@
                         </div>
                     </a>
                 </li>
-                
+
+               
+
                 <li>
                     <a href="mailto:bristol@bristolamman.com" class="contact-item">
                         <div style="display: flex; align-items: center;">
@@ -286,31 +282,35 @@
                         </div>
                     </a>
                 </li>
-
-                <!-- LOCATION WITH INTERACTIVE MAP -->
+ <li>
+                    <a href="https://www.tripadvisor.com/UserReviewEdit-g293986-d308957-Bristol_Hotel-Amman_Amman_Governorate.html" target="_blank" rel="noopener noreferrer" class="contact-item tripadvisor-item">
+                        <div style="display: flex; align-items: center;">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24"><path d="M22,8.8l2-2.1h-4.3c-2.2-1.5-4.8-2.4-7.7-2.4c-2.8,0-5.5,0.9-7.6,2.4H0l2,2.1c-1.2,1.1-2,2.7-2,4.4c0,3.3,2.7,6,6,6 c1.6,0,3-0.6,4.1-1.6l1.9,2.1l1.9-2.1c1.1,1,2.5,1.6,4.1,1.6c3.3,0,6-2.7,6-6C24,11.5,23.2,9.9,22,8.8z M6,17.3 c-2.2,0-4.1-1.8-4.1-4.1S3.8,9.2,6,9.2s4.1,1.8,4.1,4.1S8.2,17.3,6,17.3z M12,13.1c0-2.7-1.9-5-4.5-5.9c1.4-0.6,2.9-0.9,4.5-0.9 s3.1,0.3,4.5,0.9C13.9,8.1,12,10.4,12,13.1z M18,17.3c-2.2,0-4.1-1.8-4.1-4.1s1.8-4.1,4.1-4.1s4.1,1.8,4.1,4.1S20.2,17.3,18,17.3z M18,11.1c-1.2,0-2.1,1-2.1,2.1c0,1.2,1,2.1,2.1,2.1c1.2,0,2.1-1,2.1-2.1C20.1,12,19.2,11.1,18,11.1z M8.1,13.2c0,1.2-1,2.1-2.1,2.1 s-2.1-1-2.1-2.1c0-1.2,1-2.1,2.1-2.1C7.2,11.1,8.1,12,8.1,13.2z"/></svg>
+                            </div>
+                            <div class="contact-text-wrap">
+                                <span class="contact-label">Trip Advisor</span>
+                                <span class="contact-value-c">Rate Us</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
                 <li>
-                    <div class="contact-item">
+                    <div class="contact-item google-maps-item">
                         <a href="https://maps.app.goo.gl/VqNbRktP4wxqgyA56" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                             </div>
                             <div class="contact-text-wrap">
                                 <span class="contact-label">Our Location</span>
-                                <span class="contact-value">Bristol Hotel, 5th Circle, Amman</span>
+                                <span class="contact-value" style="text-transform: none;">Bristol Hotel, 5th Circle, Amman</span>
                             </div>
                         </a>
-                        
-                        <!-- Map Window -->
                         <div class="map-wrapper">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.110595248695!2d35.88241432426307!3d31.954714325413346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca0f8d2a8f185%3A0xc5a7b9ec3d05caa7!2sBristol%20Hotel!5e0!3m2!1sen!2sjo!4v1709214300000!5m2!1sen!2sjo" 
-                                allowfullscreen="" 
-                                loading="lazy">
-                            </iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.110595248695!2d35.88241432426307!3d31.954714325413346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca0f8d2a8f185%3A0xc5a7b9ec3d05caa7!2sBristol%20Hotel!5e0!3m2!1sen!2sjo!4v1709214300000!5m2!1sen!2sjo" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </li>
-
             </ul>
         </main>
     </div> 
