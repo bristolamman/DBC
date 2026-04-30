@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad  El Haddad - Digital Business Card</title>
+    <title>Ahmad El Haddad - Digital Business Card</title>
     
     <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
     <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
@@ -257,21 +257,21 @@ text-transform: lowercase;
 
         <main class="profile-section">
             <div class="photo-container">
-                <img src="ahmad.jpg" alt="Ahmad  El Haddad">
+                <img src="ahmad.jpg" alt="Ahmad El Haddad">
             </div>
             
-            <h1 class="profile-name">Ahmad  El Haddad</h1>
+            <h1 class="profile-name">Ahmad El Haddad</h1>
             <h2 class="profile-title">Sales Manager</h2>
 
             <ul class="contact-list">
                 <li>
-                    <a href="tel:+962798111562" class="contact-item">
+                    <a href="tel:+962798111563" class="contact-item">
                         <div class="contact-icon">
                             <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
                         </div>
                         <div class="contact-text-wrap">
                             <span class="contact-label">Mobile</span>
-                            <span class="contact-value">+962 79 8111562</span>
+                            <span class="contact-value">+962 79 8111563</span>
                         </div>
                     </a>
                 </li>
@@ -340,27 +340,22 @@ text-transform: lowercase;
         function downloadVCard() {
             const vCardData = `BEGIN:VCARD
 VERSION:3.0
-N:Ahmad  El Haddad;
-FN:Ahmad  El Haddad
+N:Ahmad El Haddad;
+FN:Ahmad El Haddad
 ORG:Bristol Hotel
 TITLE:Sales Manager
-TEL;TYPE=WORK,VOICE:+962 6 5923400
-TEL;TYPE=CELL,VOICE:+962798111562
+TEL;TYPE=CELL,VOICE:+962798111563
 EMAIL;TYPE=PREF,INTERNET:ahmad.elhaddad@bristolamman.com
-EMAIL;TYPE=INTERNET:bristol@bristolamman.com
-URL:https://www.bristolamman.com
+URL:https://bristolamman.github.io/DBC/ahmad.html
 END:VCARD`;
 
-            // Create a Blob containing the vCard data
             const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
             
-            // Create a temporary link element to trigger the download
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', 'ahmad.vcf');
             
-            // Append to body, click, and clean up
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

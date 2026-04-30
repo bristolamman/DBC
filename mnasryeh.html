@@ -344,23 +344,18 @@ N:Mohammad Nasryeh;
 FN:Mohammad Nasryeh
 ORG:Bristol Hotel
 TITLE:Chief Accountant
-TEL;TYPE=WORK,VOICE:+962 6 5923400
 TEL;TYPE=CELL,VOICE:+962797462596
 EMAIL;TYPE=PREF,INTERNET:acc@bristolamman.com
-EMAIL;TYPE=INTERNET:bristol@bristolamman.com
-URL:https://www.bristolamman.com
+URL:https://bristolamman.github.io/DBC/mnasryeh.html
 END:VCARD`;
 
-            // Create a Blob containing the vCard data
             const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
             
-            // Create a temporary link element to trigger the download
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', 'mnasryeh.vcf');
             
-            // Append to body, click, and clean up
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

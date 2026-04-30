@@ -288,6 +288,20 @@ text-transform: lowercase;
                     </a>
                 </li>
                 
+				
+                <li>
+                    <a href="mailto:maherbristol@gmail.com" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">E-mail</span>
+                            <span class="contact-value">maherbristol@gmail.com</span>
+                        </div>
+                    </a>
+                </li>
+                
+				
                 <li>
                     <a href="tel:+96265923400" class="contact-item">
                         <div class="contact-icon">
@@ -344,23 +358,19 @@ N:Maher Al Ashi;
 FN:Maher Al Ashi
 ORG:Bristol Hotel
 TITLE:Managing Director
-TEL;TYPE=WORK,VOICE:+962 6 5923400
 TEL;TYPE=CELL,VOICE:+962795570749
 EMAIL;TYPE=PREF,INTERNET:maher@bristolamman.com
-EMAIL;TYPE=INTERNET:bristol@bristolamman.com
-URL:https://www.bristolamman.com
+EMAIL;TYPE=WORK,INTERNET:maherbristol@gmail.com
+URL:https://bristolamman.github.io/DBC/maher.html
 END:VCARD`;
 
-            // Create a Blob containing the vCard data
             const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
             
-            // Create a temporary link element to trigger the download
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', 'maher.vcf');
             
-            // Append to body, click, and clean up
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

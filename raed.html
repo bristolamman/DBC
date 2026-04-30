@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -344,22 +344,18 @@ N:Ra'ed Jarrar;
 FN:Ra'ed Jarrar
 ORG:Bristol Hotel
 TITLE:Front Office Manager
-TEL;TYPE=WORK,VOICE:+962 6 5923400
 TEL;TYPE=CELL,VOICE:+962798111511
 EMAIL;TYPE=PREF,INTERNET:raed.jarrar@bristolamman.com
 URL:https://bristolamman.github.io/DBC/raed.html
 END:VCARD`;
 
-            // Create a Blob containing the vCard data
             const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
             
-            // Create a temporary link element to trigger the download
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', 'raed.vcf');
             
-            // Append to body, click, and clean up
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

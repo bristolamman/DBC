@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melad  Qasem - Digital Business Card</title>
+    <title>Melad Qasem - Digital Business Card</title>
     
     <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
     <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
@@ -257,11 +257,11 @@ text-transform: lowercase;
 
         <main class="profile-section">
             <div class="photo-container">
-                <img src="melad.jpg" alt="Melad  Qasem">
+                <img src="melad.jpg" alt="Melad Qasem">
             </div>
             
-            <h1 class="profile-name">Melad  Qasem</h1>
-            <h2 class="profile-title"> Restaurant Manager</h2>
+            <h1 class="profile-name">Melad Qasem</h1>
+            <h2 class="profile-title">Restaurant Manager</h2>
 
             <ul class="contact-list">
                 <li>
@@ -328,24 +328,21 @@ text-transform: lowercase;
         function downloadVCard() {
             const vCardData = `BEGIN:VCARD
 VERSION:3.0
-N:Melad  Qasem;
-FN:Melad  Qasem
+N:Melad Qasem;
+FN:Melad Qasem
 ORG:Bristol Hotel
-TITLE: Restaurant Manager
+TITLE:Restaurant Manager
 TEL;TYPE=CELL,VOICE:+962798111524
-URL:https://www.bristolamman.com
+URL:https://bristolamman.github.io/DBC/melad.html
 END:VCARD`;
 
-            // Create a Blob containing the vCard data
             const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
             
-            // Create a temporary link element to trigger the download
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', 'melad.vcf');
             
-            // Append to body, click, and clean up
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
