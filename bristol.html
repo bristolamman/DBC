@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bristol Hotel - Digital Business Card</title>
     
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -87,49 +87,10 @@
             box-sizing: border-box;
         }
 
-        /* Circular Photo Container */
-        .photo-container {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 5px solid white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin: 20px auto 30px auto;
-        }
-
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         /* Profile Details Section */
         .profile-section {
             padding: 1px 30px;
             text-align: center;
-        }
-
-        .profile-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .profile-title {
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: var(--gold-primary);
-            text-transform: uppercase;
-            margin-bottom: 30px;
         }
 
         /* Contact Links */
@@ -139,12 +100,12 @@
             flex-direction: column;
             gap: 15px;
             padding-bottom: 18px;
-margin-top: 30px;
+            margin-top: 30px;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
+            flex-direction: column; /* Changed to accommodate the map */
             background: rgba(0, 0, 0, 0.2);
             padding: 16px 20px;
             border-radius: 12px;
@@ -152,6 +113,14 @@ margin-top: 30px;
             color: var(--text-light);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Regular items remain flex-row for layout */
+        .contact-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
         }
 
         .contact-item:hover {
@@ -197,6 +166,23 @@ margin-top: 30px;
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.5px;
+            text-align: left;
+        }
+
+        /* MAP SPECIFIC STYLES */
+        .map-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 12px;
+            border: 1px solid rgba(200, 169, 126, 0.2);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* Floating Action Button Container */
@@ -212,7 +198,7 @@ margin-top: 30px;
             pointer-events: none;
         }
 
-        .fixed-action-container button {
+        .fixed-action-container a, .fixed-action-container button {
             pointer-events: auto;
         }
 
@@ -248,67 +234,81 @@ margin-top: 30px;
     <div class="card-container">
         
         <header class="brand-header">
-           <div class="logo-b">
-          <a href="https://bristolamman.com">
-        <img src="BHlogo.svg" alt="Logo">
-    </a>
-           </div>
+            <div class="logo-b">
+                <a href="https://bristolamman.com">
+                    <img src="BHlogo.svg" alt="Logo">
+                </a>
+            </div>
         </header>
 
         <main class="profile-section">
-           
 
             <ul class="contact-list">
                 
-                
-                
                 <li>
                     <a href="tel:+96265923400" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        </div>
-                        <div class="contact-text-wrap">
-                            <span class="contact-label">Landline</span>
-                            <span class="contact-value">+962 6 5923400</span>
+                        <div style="display: flex; align-items: center;">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            </div>
+                            <div class="contact-text-wrap">
+                                <span class="contact-label">Landline</span>
+                                <span class="contact-value">+962 6 5923400</span>
+                            </div>
                         </div>
                     </a>
                 </li>
                 
                 <li>
                     <a href="mailto:bristol@bristolamman.com" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
-                        </div>
-                        <div class="contact-text-wrap">
-                            <span class="contact-label">Email</span>
-                            <span class="contact-value">bristol@bristolamman.com</span>
+                        <div style="display: flex; align-items: center;">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                            </div>
+                            <div class="contact-text-wrap">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">bristol@bristolamman.com</span>
+                            </div>
                         </div>
                     </a>
                 </li>
 
                 <li>
                     <a href="https://www.bristolamman.com" target="_blank" rel="noopener noreferrer" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c-.96 1.66-2.49 2.93-4.33 3.56C1.36 10.45 1.82 9.25 2.14 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
-                        </div>
-                        <div class="contact-text-wrap">
-                            <span class="contact-label">Website</span>
-                            <span class="contact-value">bristolamman.com</span>
+                        <div style="display: flex; align-items: center;">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c-.96 1.66-2.49 2.93-4.33 3.56C1.36 10.45 1.82 9.25 2.14 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                            </div>
+                            <div class="contact-text-wrap">
+                                <span class="contact-label">Website</span>
+                                <span class="contact-value">bristolamman.com</span>
+                            </div>
                         </div>
                     </a>
                 </li>
 
-
+                <!-- LOCATION WITH INTERACTIVE MAP -->
                 <li>
-                    <a href="https://maps.app.goo.gl/VqNbRktP4wxqgyA56" target="_blank" rel="noopener noreferrer" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <div class="contact-item">
+                        <a href="https://maps.app.goo.gl/VqNbRktP4wxqgyA56" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </div>
+                            <div class="contact-text-wrap">
+                                <span class="contact-label">Our Location</span>
+                                <span class="contact-value">Bristol Hotel, 5th Circle, Amman</span>
+                            </div>
+                        </a>
+                        
+                        <!-- Map Window -->
+                        <div class="map-wrapper">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.110595248695!2d35.88241432426307!3d31.954714325413346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca0f8d2a8f185%3A0xc5a7b9ec3d05caa7!2sBristol%20Hotel!5e0!3m2!1sen!2sjo!4v1709214300000!5m2!1sen!2sjo" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
                         </div>
-                        <div class="contact-text-wrap">
-                            <span class="contact-label">Our Location</span>
-                            <span class="contact-value">Abdelrahim Allawi St.<br/>Amman<br/>Jordan<br/>5th Circle<br/>Jordan<br/>142509</span>
-                        </div>
-                    </a>
+                    </div>
                 </li>
 
             </ul>
@@ -316,7 +316,7 @@ margin-top: 30px;
     </div> 
     
     <div class="fixed-action-container">
-            <a href="bristol.vcf" download="bristol_contact" style="text-decoration: none;">
+        <a href="bristol.vcf" download="bristol_contact" style="text-decoration: none;">
             <button class="btn-save">Save Contact</button>
         </a>
     </div>
