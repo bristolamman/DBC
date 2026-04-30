@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fahed al ashi - Digital Business Card</title>
+    <title>Fahed Al Ashi - Digital Business Card</title>
     
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -35,11 +35,10 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            padding-bottom: 100px; /* Space for the fixed footer */
+            padding-bottom: 100px; 
             color: var(--text-light);
         }
 
-        /* Main Card Container */
         .card-container {
             background-color: var(--bg-card);
             width: 100%;
@@ -52,7 +51,6 @@
             flex-direction: column;
         }
 
-        /* Top Brand Section */
         .brand-header {
             text-align: center;
             padding: 1px 20px 1px;
@@ -68,7 +66,6 @@
             pointer-events: none;
         }
 
-        /* Brand Logo */
         .logo-b {
             width: 180px;
             height: 180px;
@@ -84,10 +81,8 @@
             height: 100%;
             object-fit: contain;
             padding: 10px;
-            box-sizing: border-box;
         }
 
-        /* Circular Photo Container */
         .photo-container {
             width: 200px;
             height: 200px;
@@ -107,7 +102,6 @@
             object-fit: cover;
         }
 
-        /* Profile Details Section */
         .profile-section {
             padding: 1px 30px;
             text-align: center;
@@ -132,7 +126,6 @@
             margin-bottom: 30px;
         }
 
-        /* Contact Links */
         .contact-list {
             list-style: none;
             display: flex;
@@ -195,11 +188,10 @@
         .contact-value {
             font-size: 12px;
             font-weight: 500;
-text-transform: lowercase;
+            text-transform: lowercase;
             letter-spacing: 0.5px;
         }
 
-        /* Floating Action Button Container */
         .fixed-action-container {
             position: fixed;
             bottom: 20px;
@@ -209,11 +201,6 @@ text-transform: lowercase;
             max-width: 420px;
             padding: 0 30px;
             z-index: 1000;
-            pointer-events: none;
-        }
-
-        .fixed-action-container button {
-            pointer-events: auto;
         }
 
         .btn-save {
@@ -238,7 +225,6 @@ text-transform: lowercase;
 
         .btn-save:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
             filter: brightness(1.1);
         }
     </style>
@@ -246,22 +232,21 @@ text-transform: lowercase;
 <body>
 
     <div class="card-container">
-        
         <header class="brand-header">
            <div class="logo-b">
-          <a href="https://bristolamman.com">
-        <img src="BHlogo.svg" alt="Logo">
-    </a>
+              <a href="https://bristolamman.com">
+                <img src="BHlogo.svg" alt="Logo">
+              </a>
            </div>
         </header>
 
         <main class="profile-section">
             <div class="photo-container">
-                <img src="fahed.jpg" alt="fahed al ashi">
+                <img src="fahed.jpg" alt="Fahed Al Ashi">
             </div>
             
-            <h1 class="profile-name">fahed al ashi</h1>
-            <h2 class="profile-title">business analyst</h2>
+            <h1 class="profile-name">Fahed Al Ashi</h1>
+            <h2 class="profile-title">Business Analyst</h2>
 
             <ul class="contact-list">
                 <li>
@@ -275,7 +260,6 @@ text-transform: lowercase;
                         </div>
                     </a>
                 </li>
-
                 <li>
                     <a href="mailto:fahed@bristolamman.com" class="contact-item">
                         <div class="contact-icon">
@@ -287,7 +271,30 @@ text-transform: lowercase;
                         </div>
                     </a>
                 </li>
-                
+				 <li>
+                    <a href="https://www.linkedin.com/in/fahedalashi/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <div class="contact-icon">
+                           <svg viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>                        </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Linkedin</span>
+                            <span class="contact-value">Fahed Al Ashi</span>
+                        </div>
+                    </a>
+                </li>
+				 <li>
+                    <a href="https://wa.me/+962796996955" target="_blank" rel="noopener noreferrer" class="contact-item">
+                        <div class="contact-icon">
+                          <svg viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.19-.3a8.18 8.18 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.24-8.24m-3.53 4.75c-.19 0-.51.07-.78.37-.27.3-.98 1-.98 2.43 0 1.43 1.04 2.81 1.18 3.01.14.2 2.05 3.12 4.96 4.38.69.3 1.23.48 1.66.62.7.22 1.33.19 1.84.11.56-.08 1.74-.71 1.99-1.39.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35-.3-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.59-.49-.51-.67-.51"/>
+            </svg>                 </div>
+                        <div class="contact-text-wrap">
+                            <span class="contact-label">Whatsapp</span>
+                            <span class="contact-value">+962 79 6996955</span>
+                        </div>
+                    </a>
+                </li>
                 <li>
                     <a href="tel:+96265923400" class="contact-item">
                         <div class="contact-icon">
@@ -299,19 +306,6 @@ text-transform: lowercase;
                         </div>
                     </a>
                 </li>
-                
-                <li>
-                    <a href="mailto:bristol@bristolamman.com" class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
-                        </div>
-                        <div class="contact-text-wrap">
-                            <span class="contact-label">Hotel Email</span>
-                            <span class="contact-value">bristol@bristolamman.com</span>
-                        </div>
-                    </a>
-                </li>
-
                 <li>
                     <a href="https://www.bristolamman.com" target="_blank" rel="noopener noreferrer" class="contact-item">
                         <div class="contact-icon">
@@ -326,41 +320,53 @@ text-transform: lowercase;
             </ul>
         </main>
     </div> 
-    
-  
-    </div>
-	 <div class="fixed-action-container">
-            <button class="btn-save" onclick="downloadVCard()">Save Contact</button>
-        </div>
 
+    <div class="fixed-action-container">
+        <button class="btn-save" onclick="downloadVCard()">Save Contact</button>
     </div>
 
     <script>
-        // Function to dynamically generate and download a standard .vcf file
-        function downloadVCard() {
+        async function downloadVCard() {
+            const name = "Fahed Al Ashi";
+            const imageUrl = "fahed.jpg"; 
+            let base64Image = "";
+            
+            // Try to fetch the image and convert it to Base64 for the vCard
+            try {
+                const response = await fetch(imageUrl);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    base64Image = await new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onloadend = () => resolve(reader.result.split(',')[1]);
+                        reader.readAsDataURL(blob);
+                    });
+                }
+            } catch (e) {
+                console.warn("Profile image could not be loaded into vCard. Downloading without photo.");
+            }
+
             const vCardData = `BEGIN:VCARD
 VERSION:3.0
-N:fahed al ashi;
-FN:fahed al ashi
+N:;${name};;;
+FN:${name}
 ORG:Bristol Hotel
-TITLE:business analyst
-TEL;TYPE=WORK,VOICE:+962 6 5923400
+TITLE:Business Analyst
 TEL;TYPE=CELL,VOICE:+962796996955
-EMAIL;TYPE=PREF,INTERNET:fahed@bristolamman.com
-EMAIL;TYPE=INTERNET:bristol@bristolamman.com
-URL:https://www.bristolamman.com
+EMAIL;TYPE=Personal,INTERNET:fahed@bristolamman.com
+URL;TYPE=Whatsapp:https://wa.me/+962796996955
+URL;TYPE=Linkedin:https://www.linkedin.com/in/fahedalashi/
+URL;TYPE=Work:https://bristolamman.github.io/DBC/fahed.html
+
+${base64Image ? `PHOTO;TYPE=JPEG;ENCODING=b:${base64Image}` : ""}
 END:VCARD`;
 
-            // Create a Blob containing the vCard data
-            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-            
-            // Create a temporary link element to trigger the download
-            const url = window.URL.createObjectURL(blob);
+            const vcfBlob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(vcfBlob);
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'fahed.vcf');
+            link.setAttribute('download', `${name}.vcf`);
             
-            // Append to body, click, and clean up
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
