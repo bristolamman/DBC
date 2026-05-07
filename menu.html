@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Menu</title>
+    <style>
+        /* Color Palette & Basic Setup */
+        :root {
+            --bg-dark: #2a2a2a;
+            --gold: #C8A97E;
+            --burgundy: #7A203F;
+            --accent-pop: #8B2A4E; /* New Accent Color */
+            --sand: #E0C89E;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--sand);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 450px; /* Mobile focused */
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 120px;
+        }
+
+        /* Header & Logo */
+        header {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px 24px;
+        }
+
+        .logo-wrapper {
+            width: 160px;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Sticky Navigation Tabs */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(42, 42, 42, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            /* Updated nav bottom border to match the new color faintly */
+            border-bottom: 1px solid rgba(139, 42, 78, 0.2);
+        }
+
+        .tab-container {
+            display: flex;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            color: rgba(224, 200, 158, 0.5);
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        /* Updated active tab text color */
+        .tab-btn.active {
+            color: var(--accent-pop);
+        }
+
+        /* Updated active tab sliding underline */
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent-pop);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        /* Main Menu Content */
+        main {
+            padding: 40px 32px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .category-section {
+            margin-top: 40px;
+        }
+
+        .category-section:first-child {
+            margin-top: 0;
+        }
+
+        /* Updated category title color */
+        .category-title {
+            color: var(--accent-pop);
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Updated line stretching next to the subcategory title */
+        .category-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: rgba(139, 42, 78, 0.4); 
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            /* Updated faint dividing lines between menu items */
+            border-bottom: 1px solid rgba(139, 42, 78, 0.15);
+        }
+
+        .item-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .item-name {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .item-price {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+        }
+
+        /* Bottom Left Watermark */
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 60;
+            opacity: 0.6;
+            transition: all 0.5s ease;
+            transform-origin: bottom left;
+        }
+
+        .watermark:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .watermark a {
+            display: block;
+            width: 100px;
+        }
+
+        .watermark img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-wrapper">
+                <img src="BHlogo.svg" alt="Menu Logo">
+            </div>
+        </header>
+
+        <nav>
+            <div class="tab-container">
+                <button class="tab-btn active" onclick="switchTab('food')">Food & Fare</button>
+                <button class="tab-btn" onclick="switchTab('drinks')">Refreshments</button>
+            </div>
+        </nav>
+
+        <main>
+            <div id="food" class="tab-content active">
+                
+                <div class="category-section">
+                    <h2 class="category-title">Handhelds & Mains</h2>
+                    <div class="item-row"><span class="item-name">Beef Burger</span><span class="item-price">9.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Steak Sandwich</span><span class="item-price">9.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Club Sandwich</span><span class="item-price">7.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Chicken Tenders</span><span class="item-price">7.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Chicken Roll</span><span class="item-price">7.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Chicken Caesar</span><span class="item-price">7.00 JOD</span></div>
+                </div>
+
+                <div class="category-section">
+                    <h2 class="category-title">Starters & Shareables</h2>
+                    <div class="item-row"><span class="item-name">Traditional Yalanji</span><span class="item-price">3.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Mezze</span><span class="item-price">2.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Tacos</span><span class="item-price">7.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Chips</span><span class="item-price">2.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Mixed Nuts</span><span class="item-price">2.00 JOD</span></div>
+                </div>
+
+                <div class="category-section">
+                    <h2 class="category-title">Sweet Endings</h2>
+                    <div class="item-row"><span class="item-name">Lazy Cake</span><span class="item-price">3.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">English Cake</span><span class="item-price">2.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Ice Cream</span><span class="item-price">2.50 JOD</span></div>
+                </div>
+
+            </div>
+
+            <div id="drinks" class="tab-content">
+                
+                <div class="category-section">
+                    <h2 class="category-title">Fresh Juices & Water</h2>
+                    <div class="item-row"><span class="item-name">Water</span><span class="item-price">1.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Orange Juice</span><span class="item-price">3.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Lemon Juice</span><span class="item-price">3.00 JOD</span></div>
+                </div>
+
+                <div class="category-section">
+                    <h2 class="category-title">Craft Sodas & Mocktails</h2>
+                    <div class="item-row"><span class="item-name">Soft Drink</span><span class="item-price">2.50 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Virgin Mojito</span><span class="item-price">5.00 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Red Bull</span><span class="item-price">4.50 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Ginseng Mix</span><span class="item-price">3.50 JOD</span></div>
+                    <div class="item-row"><span class="item-name">Ice Tea</span><span class="item-price">3.50 JOD</span></div>
+                </div>
+
+                <div class="category-section">
+                    <h2 class="category-title">Lounge Classics</h2>
+                    <div class="item-row"><span class="item-name">Shisha</span><span class="item-price">10.00 JOD</span></div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="watermark">
+        <a href="https://digibridge.me" target="_blank" rel="noopener noreferrer">
+            <img src="dbwm.svg" alt="DigiBridge Watermark">
+        </a>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Remove active class from all buttons and contents
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button
+            event.currentTarget.classList.add('active');
+
+            // Show target content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Smooth scroll to top of menu when switching tabs
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
