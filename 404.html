@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <script>
+
+      var path = window.location.pathname;
+      
+      var slug = path.replace('/DBC/', '').replace('.html', '').replace('/', '');
+      
+      var newDomain = "https://bristolamman.digibridge.me/";
+      
+      if (slug) {
+        window.location.href = newDomain + slug;
+      } else {
+        window.location.href = newDomain;
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting you to the new site... If you are not redirected, <a href="https://digibridge.me">click here</a>.</p>
+  </body>
+</html>
