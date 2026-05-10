@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Redirecting...</title>
-    <script>
-
-      var path = window.location.pathname;
-      
-      var slug = path.replace('/DBC/', '').replace('.html', '').replace('/', '');
-      
-      var newDomain = "https://bristolamman.digibridge.me/";
-      
-      if (slug) {
-        window.location.href = newDomain + slug;
-      } else {
-        window.location.href = newDomain;
-      }
-    </script>
-  </head>
-  <body>
-    <p>Redirecting you to the new site... If you are not redirected, <a href="https://digibridge.me">click here</a>.</p>
-  </body>
-</html>
+var path = window.location.pathname;
+  
+  // 2. Aggressively clean the path
+  // This removes "/DBC/", then removes ".html", then removes any trailing slashes
+  var slug = path.toLowerCase()
+                 .replace('/dbc/', '')
+                 .replace('.html', '')
+                 .replace('/', '');
+  
+  // 3. Your NEW domain
+  var newDomain = "https://bristolamman.digibridge.me/";
+  
+  // 4. Redirect to the clean slug
+  window.location.href = newDomain + slug;
+</script>
